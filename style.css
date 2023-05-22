@@ -1,25 +1,43 @@
 .container {
     display: grid;
-    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-columns: 7fr 3fr;
     gap: 10px 10px;
     margin: 30px auto;
+    justify-content: center;
 }
 
 h1 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .canvas {
-    padding: 10px;
+    padding: 2vmin;
+    border: 2px solid black;
+    border-radius: 2vmin;
     margin: 0 auto;
     display: grid;
     gap: 5px;
-    grid-template-columns: repeat(10, 30px);
+    grid-template-columns: repeat(3, 30px);
+    background-color: grey;
 }
 
-.canvas > div {
+.cell {
     height: 30px;
-    background: tomato;
+    background: gray;
+}
+
+.player, .enemy {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.player {
+    background-color: #14c6f3;
+}
+.enemy {
+    background-color: #f31414;
 }
 
 .info {
