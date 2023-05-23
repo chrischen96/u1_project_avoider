@@ -18,26 +18,30 @@ h1 {
     margin: 0 auto;
     display: grid;
     gap: 5px;
-    grid-template-columns: repeat(3, 30px);
-    background-color: grey;
+    grid-template-columns: repeat(5, 30px);
+    background-color: lightgrey;
 }
 
 .cell {
     height: 30px;
-    background: gray;
+    background: lightgray;
 }
 
 .player, .enemy {
     width: 100%;
     height: 100%;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.player {
-    background-color: #14c6f3;
-}
 .enemy {
-    background-color: #f31414;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .info {
