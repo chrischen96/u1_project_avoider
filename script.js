@@ -11,7 +11,7 @@ for (let i = 0; i < 65; i++) {
 const cells = Array.from(document.querySelectorAll('.cell'))
 const enemyCells = cells.slice(0, 60)
 const playerCells = cells.slice(60)
-const scoreDisplay = document.querySelector('.score')
+const scoreDisplay = document.querySelector('.score span')
 const levelDisplay = document.querySelector('.level span')
 console.log(cells)
 
