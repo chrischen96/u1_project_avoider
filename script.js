@@ -9,9 +9,10 @@ for (let i = 0; i < 65; i++) {
     canvas.appendChild(cell)
 }
 const cells = Array.from(document.querySelectorAll('.cell'))
-const scoreDisplay = document.querySelector('.score')
 const enemyCells = cells.slice(0, 60)
 const playerCells = cells.slice(60)
+const scoreDisplay = document.querySelector('.score')
+const levelDisplay = document.querySelector('.level span')
 console.log(cells)
 
 let dropCount, speed, score, stopGame, level
@@ -45,7 +46,26 @@ function init() {
 }
 
 function drop() {
-    
+    for (let i = enemyCells.length - 1; i >= 0; i--) {
+        const cell = enemyCells[i]
+        const nextCell = cells[i + 5]
+        const enemy = cell.children[0]
+        if (!enemy) continue
+        nextCell.appendChild(enemy)
+        // collide
+        if (playerCells.includes(nextCell)) {
+            if (nextCell.querySelector('.player')) {
+                stopGame = true
+            } else {
+                score++
+                scoreDisplay.innerHTML = score
+                level = 1 + Math.floor(score / 10)
+                levelDisplay.innerHTML = level
+                speed = Math.max(200, 1000 - 100 * (level - 1))
+                setTimeout(enemy.remove(), 2000)
+            }
+        }
+    }
 
     if (dropCount % 2 === 0) {
         const position = Math.floor(Math.random() * 5)
@@ -54,10 +74,10 @@ function drop() {
 
     if (stopGame) {
         alert(`Your score: ${score}. Close this window to play again.`) 
+        init()
     } else {
         dropCount ++
-        level = 1 + Math.floor(dropCount / 10)
-        speed = 1000 + 200 * (level - 1)
+        console.log(dropCount)
         setTimeout(drop, speed)
     }
 }
