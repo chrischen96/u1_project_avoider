@@ -2,53 +2,62 @@ console.log('working')
 const canvas = document.querySelector('.canvas')
 console.log(typeof canvas)
 
-// define constant and variable
+// define constant and variableN
+for (let i = 0; i < 65; i++) {
+    const cell = document.createElement('div')
+    cell.className = 'cell'
+    canvas.appendChild(cell)
+}
 const cells = Array.from(document.querySelectorAll('.cell'))
 const scoreDisplay = document.querySelector('.score')
-const enemyCells = cells.slice(0, 33)
-const playerCells = cells.slice(33)
+const enemyCells = cells.slice(0, 60)
+const playerCells = cells.slice(60)
 console.log(cells)
 
-let dropCount, speed, score
+let dropCount, speed, score, stopGame, level
 
 // add event listener
 document.addEventListener('keydown', e => {
+    if (stopGame) return
     if (!dropCount) {
-        startGame()
+        drop()
     }
     const player = document.querySelector('.player')
-    if (e.key == 'ArrowRight') {
+    if (e.key == 'ArrowRight' && player.parentElement != playerCells[-1]) {
         player.parentElement.nextElementSibling.appendChild(player)
     } 
-    if (e.key == 'ArrowLeft') {
+    if (e.key == 'ArrowLeft' && player.parentElement != playerCells[0]) {
         player.parentElement.previousElementSibling.appendChild(player)
     }
 })
+document.querySelector('.reset').addEventListener('click', init)
 
 init()
 function init() {
     dropCount = 0
     speed = 1000
     score = 0
-    scoreDisplay.innerHTML = '0'
-
+    level = 1
+    stopGame = false
+    scoreDisplay.innerHTML = '0000'
     cells.forEach(cell => cell.innerHTML = '')
-    playerCells[1].innerHTML = '<div class="player"></div>'
+    playerCells[2].innerHTML = '<div class="player"></div>'
 }
 
-function startGame() {
-    init()
-    loop()
-}
+function drop() {
+    
 
-function loop() {
-    let stopGame = false;
-
-    // 
+    if (dropCount % 2 === 0) {
+        const position = Math.floor(Math.random() * 5)
+        enemyCells[position].innerHTML = `<div class='enemy'></div>`
+    }
 
     if (stopGame) {
-        alert(`Your score: ${score}. Close this window to play again.`) } else {
-            dropCount ++
-            setTimeout(loop, speed)
-        }
+        alert(`Your score: ${score}. Close this window to play again.`) 
+    } else {
+        dropCount ++
+        level = 1 + Math.floor(dropCount / 10)
+        speed = 1000 + 200 * (level - 1)
+        setTimeout(drop, speed)
+    }
 }
