@@ -81,6 +81,7 @@ h1 {
     font-size: 1rem;
     font-family: 'Righteous', cursive;
     cursor: pointer;
+    background-color: white;
 }
 
 .canvas {
