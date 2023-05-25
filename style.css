@@ -14,15 +14,15 @@ body {
 
 h1 {
     text-align: center;
-    font-size: calc(1em + 2vh);
+    font-size: calc(1.5em + 2vh);
     margin-bottom: 0;
     font-family: 'Aoboshi One', serif;
 }
 
 .info {
     display: flex;
-    font-size: calc(0.5em + 1vh);
-    width: 32vh;
+    font-size: calc(0.6em + 1vh);
+    width: 30vh;
     margin-top: 2vh;
     margin-bottom: 5px;
     justify-content: space-between;
@@ -30,9 +30,10 @@ h1 {
 
 .message {
     position: absolute;
-    top: 35vh;
+    top: 32vh;
     z-index: 2;
-    width: calc(330vh / 12);
+    /* width: calc(330vh / 12); */
+    width: 30vh;
     height: 30vh;
     padding: 4vmin 2vmin;
     border-radius: 3vmin;
@@ -48,7 +49,8 @@ h1 {
     position: absolute;
     top: 40vh;
     z-index: 1;
-    width: calc(330vh / 12);
+    /* width: calc(330vh / 12); */
+    width: 30vh;
     font-size: calc(1em + 1vh);
     font-weight: bold;
     line-height: 2em; 
@@ -65,7 +67,7 @@ h1 {
     align-self: center;
     border: none;
     border-radius: 2vmin;
-    width: 20vw;
+    width: 15vh;
     height: 6vh;
     padding: 2vmin;
     font-size: 1rem;
@@ -76,18 +78,40 @@ h1 {
 
 .canvas {
     padding: 2vmin;
-    margin-bottom: 5vh;
     border: 3px solid rgb(171, 231, 254);
     border-radius: 5vmin;
     background-color: rgb(197, 242, 255);
     display: inline-grid;
     gap: 5px;
-    grid-template-columns: repeat(5, calc(66vh / 12));
+    grid-template-columns: repeat(5, calc(66vh / 11));
     position: relative;
 }
 
 .cell {
-    height: calc(66vh / 12);
+    height: calc(66vh / 11);
+}
+
+@media (any-pointer: coarse) {
+    /* do your own styles */
+    .canvas {
+        grid-template-columns: repeat(5, calc(60vh / 11));
+    }
+    .cell {
+        height: calc(60vh / 11);
+    }
+    /* .message {
+        width: calc(300vh / 12);
+    }
+    .messageStart {
+        width: calc(300vh / 12);
+    } */
+    /* .message {
+        top: 30vh;
+        width: 28vh;
+    } */
+    .messageStart {
+        top: 45vh;
+    } 
 }
 
 .player, .enemy {
