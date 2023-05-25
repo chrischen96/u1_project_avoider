@@ -93,6 +93,9 @@ h1 {
 
 @media (any-pointer: coarse) {
     /* do your own styles */
+    body {
+        height: 80vh;
+    }
     .canvas {
         grid-template-columns: repeat(5, calc(60vh / 11));
     }
