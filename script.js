@@ -45,6 +45,37 @@ document.addEventListener('keydown', e => {
     }
 })
 
+// test for touch
+let touchstartX
+let touchendX
+    
+function checkDirection() {
+    const player = document.querySelector('.player') 
+    if (touchendX < touchstartX && player.parentElement != playerCells[0]) {
+        player.parentElement.previousElementSibling.appendChild(player)
+    } else if (touchendX > touchstartX && player.parentElement != playerCells[playerCells.length - 1]) {
+        player.parentElement.nextElementSibling.appendChild(player)
+    }
+}
+
+document.addEventListener('touchstart', e => {
+    if (!dropCount || pauseGame) {
+        messageStart.style.display = 'none'
+        canvas.style.opacity = 0.9
+        pauseGame = false
+        console.log('drop')
+        drop()
+        console.log('after drop') 
+    }
+    touchstartX = e.changedTouches[0].screenX
+})
+
+document.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX
+    checkDirection()
+})
+
+// functions
 function init() {
     dropCount = 0
     speed = 600
