@@ -4,7 +4,7 @@ A browser-based game implemented with HTML, CSS, and JavaScript.
 ## Game Intro
 The Avoider game is a vertical flight game where the player controls a warplane to dodge enemy aircrafts ✈️ . You cannot touch each other. If your plane has a collision with enemy flights, your player dies and you have to start over.
 
-![Aircrafts!](https://en.wikipedia.org/wiki/Solar_Striker#/media/File:Solar_Striker_Cover.jpg)
+![Aircrafts!](https://pixeljoint.com/files/icons/full/wwii_airplanes_1to1.png)
 
 ## How to Play
 Players use arrow keys ◀️🔼▶️ to control their flights. The game will start whenever the player press a key on the keyboard.  
