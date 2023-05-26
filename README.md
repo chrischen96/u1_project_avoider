@@ -14,8 +14,13 @@ Enemy aircrafts will be released from the top of the game frame to the space at 
 Each time the player's plane passes an enemy aircraft, the score will plus the number of the player's current level. Player's level is based on the score, and higher the level, enemy flights will appear with shorter invervals and faster speed. Once the game is over, Your score will be displayed in an alert box and ask you if you want to start again.
 
 ## Feasibility Study
-CSS grid and flexbox could be used to build the game canvas. While CSS animation and fillRect() method can render the elements.  
+CSS grid and flexbox could be used to build the game canvas. 
 The alternative project is the Snake game.
+
+## Challenges
+- Control flow
+- Set flags to start or end the game, pause or resume game.
+- Support touch screen
 
 ## Trello
 [Project Management](https://trello.com/invite/b/NKV5hiBD/ATTIbe72e0f9fd6b2febe1fcb0f58104f3907267ABD0/unit-1-project)
